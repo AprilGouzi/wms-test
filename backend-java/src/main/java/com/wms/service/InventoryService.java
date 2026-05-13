@@ -99,7 +99,8 @@ public class InventoryService {
     public List<InventoryResponse> queryInventory(String keyword, Long warehouseId,
                                                  int page, int pageSize) {
         // 使用 JOIN 查询获取库存及其关联信息
-        List<Object[]> results = inventoryRepository.searchInventoryRaw(keyword, warehouseId, page, pageSize);
+        int offset = (page - 1) * pageSize;
+        List<Object[]> results = inventoryRepository.searchInventoryRaw(keyword, warehouseId, offset, pageSize);
         return results.stream().map(this::toInventoryResponse).collect(Collectors.toList());
     }
 
