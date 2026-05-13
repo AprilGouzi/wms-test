@@ -11,7 +11,7 @@
  * ️ BUG 预埋点：编辑后返回列表时页码会重置为第1页
  *   候选人需要在任务3中修复此问题
  */
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, computed } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import { getProducts, createProduct, updateProduct, deleteProduct, type Product } from '@/api'
 
